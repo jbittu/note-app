@@ -1,53 +1,80 @@
+/* NoteArea.css */
+
 .note-area {
-    flex: 1;
-    display: flex;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+}
+
+.note-area.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #888;
+  padding: 2rem;
+  text-align: center;
+}
+
+.note-area header {
+  padding: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  background-color: #1e40af;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-area main {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.note {
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.note p {
+  margin: 0 0 0.5rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .note-area header {
     flex-direction: column;
-    padding: 1rem;
-    background: #e4ecfa;
-    overflow: auto;
+    align-items: flex-start;
   }
-  
-  .notes-list {
-    flex: 1;
-    overflow-y: auto;
-  }
-  
+
   .note {
-    background: white;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
   }
-  
-  .note-input {
-    display: flex;
-    align-items: center;
-    background: #2e00b9;
-    padding: 0.5rem;
-    border-radius: 10px;
+
+  .meta {
+    flex-wrap: wrap;
   }
-  
-  .note-input textarea {
-    flex: 1;
-    resize: none;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .send-btn {
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: gray;
-    margin-left: 0.5rem;
-    cursor: not-allowed;
-  }
-  
-  .send-btn.active {
-    color: white;
-    cursor: pointer;
-  }
-  
+}

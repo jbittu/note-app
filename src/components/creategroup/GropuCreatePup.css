@@ -1,0 +1,116 @@
+/* CreateGroupPopup.css */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .popup h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .popup input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .popup input:focus {
+    border-color: #1e40af;
+  }
+  
+  .color-picker {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .color-picker label {
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+  
+  .popup button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup button:hover {
+    background-color: #3342b4;
+  }
+  
+  .popup button:active {
+    background-color: #2c3c9b;
+  }
+  
+  .error {
+    color: #ef4444;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .popup {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  
+    .popup h2 {
+      font-size: 1.25rem;
+    }
+  
+    .popup input {
+      font-size: 0.9rem;
+    }
+  
+    .popup button {
+      font-size: 1rem;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

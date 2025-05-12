@@ -1,40 +1,33 @@
-import React, { useState } from "react";
-import "./NoteArea.css";
+import React from 'react';
+import NoteForm from '../noteForm/NoteForm';
+import './NoteArea.css';
 
-const NoteArea = ({ groupName, notes, onAddNote }) => {
-  const [text, setText] = useState("");
-
-  const handleSend = () => {
-    if (!text.trim()) return;
-    onAddNote(groupName, text);
-    setText("");
-  };
+const NoteArea = ({ group, setGroups, groups }) => {
+  if (!group) return <div className="note-area empty">Select or create a group</div>;
 
   return (
     <div className="note-area">
-      <h2>{groupName}</h2>
-      <div className="notes-list">
-        {notes.map((note, idx) => (
-          <div className="note" key={idx}>
-            <p>{note.content}</p>
-            <span>
-              {new Date(note.createdAt).toLocaleDateString()} • {" "}
-              {new Date(note.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="note-input">
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && (e.preventDefault(), handleSend())}
-          placeholder="Here’s the sample text for sample work"
-        ></textarea>
-        <button className={`send-btn ${text ? "active" : ""}`} onClick={handleSend}>
-          ➤
-        </button>
-      </div>
+      <header style={{ backgroundColor: group.color }}>
+        <div className="avatar">{group.avatar}</div>
+        <h2>{group.name}</h2>
+      </header>
+      <main>
+        {group.notes.length === 0 ? (
+          <p className="no-notes">No notes yet. Add your first note below.</p>
+        ) : (
+          group.notes.map((note) => (
+            <div key={note.id} className="note">
+              <p>{note.text}</p>
+              <div className="meta">
+                <span>{note.date}</span>
+                <span>•</span>
+                <span>{note.time}</span>
+              </div>
+            </div>
+          ))
+        )}
+      </main>
+      <NoteForm group={group} setGroups={setGroups} groups={groups} />
     </div>
   );
 };

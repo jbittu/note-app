@@ -1,45 +1,86 @@
+/* Sidebar.css */
+
 .sidebar {
-    width: 250px;
-    background: white;
-    border-right: 1px solid #ddd;
-    padding: 1rem;
+  background-color: #f9fafb;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+
+nav {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.group-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.group-item:hover {
+  background-color: #e0e7ff;
+}
+
+.group-item.active {
+  background-color: #c7d2fe;
+}
+
+.groupColor {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.add-group {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  border: none;
+  background-color: #1e40af;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.2s;
+}
+
+.add-group:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
   }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
+
+  .add-group {
+    margin-top: 10px;
   }
-  
-  .sidebar li {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin: 10px 0;
-  }
-  
-  .sidebar li.active {
-    background: #ddd;
-  }
-  
-  .avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
-    color: white;
-    text-align: center;
-    line-height: 35px;
-    font-weight: bold;
-  }
-  
-  .add-btn {
-    margin-top: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #2e00b9;
-    color: white;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
-  }
+}

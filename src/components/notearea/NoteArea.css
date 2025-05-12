@@ -7,7 +7,14 @@
   height: 100%;
   background-color: #fff;
 }
-
+.back-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
 .note-area.empty {
   display: flex;
   justify-content: center;
@@ -27,7 +34,7 @@
 }
 
 .avatar {
-  background-color: #1e40af;
+  background-color: #111111;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -66,8 +73,8 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .note-area header {
-    flex-direction: column;
-    align-items: flex-start;
+    
+    /* align-items: flex-start; */
   }
 
   .note {
@@ -76,5 +83,12 @@
 
   .meta {
     flex-wrap: wrap;
+  }
+  .back-btn {
+    display: block;
+  }
+
+  .note-area h2 {
+    font-size: 1.2rem;
   }
 }

@@ -2,15 +2,17 @@ import React from 'react';
 import NoteForm from '../noteForm/NoteForm';
 import './NoteArea.css';
 
-const NoteArea = ({ group, setGroups, groups }) => {
+const NoteArea = ({ group, setGroups, groups, onBack }) => {
   if (!group) return <div className="note-area empty">Select or create a group</div>;
 
   return (
     <div className="note-area">
       <header style={{ backgroundColor: group.color }}>
-        <div className="avatar">{group.avatar}</div>
-        <h2>{group.name}</h2>
-      </header>
+  <button className="back-btn" onClick={onBack}>&larr;</button>
+  <div className="avatar">{group.avatar}</div>
+  <h2>{group.name}</h2>
+</header>
+
       <main>
         {group.notes.length === 0 ? (
           <p className="no-notes">No notes yet. Add your first note below.</p>
